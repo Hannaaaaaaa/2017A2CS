@@ -1,0 +1,43 @@
+# Chapter 25 End of Chapter
+## Hanna Gao
+
+1. a. Iteration: a statement or a group of statements are expected repeatedly for a given condition; recursion: a function that call itself with base case and general case
+b. Advantage: do not require a loop, so much shorter; disadvantage: the recursion can only happened for a limit times, for example, in python, 998 times
+2. a. A function that uses recursion
+b. 
+Call number | Procedure call | Exponent=0 | Result
+--- | --- | --- | ---
+1 | Power(2,4) | False | 2*Power(2,3)
+2 | Power(2,3) | False | 2*Power(2,2)
+3 | Power(2,2) | False | 2*Power(2,1)
+4 | Power(2,1) | False | 2*Power(2,0)
+5 | Power(2,0) | True | 1
+(4) | Power(2,1) | | 2
+(3) | Power(2,2) | | 4
+(2) | Power(2,3) | | 8
+(1) | Power(2,4) | | 16
+c.  when the recursion started, the program calls the function with specific local variables and store them into a stack. When exponent=0, the result is stored into the stack, and the previous procedure call is expected one by one in a sequence of "first in, last out".
+d. 
+```pseudocode
+FUNCTION Power(Base: INTEGER, Exponent: INTEGER) RETURNS INTEGER
+Result<-1
+FOR I<- 1 TO Exponent
+   Result<-Result*Base
+ENDFOR
+RETURN Result 
+ENDFUNCTION
+```
+f. i. Recursion is shorter than loop
+ii. Easier to understand when looking at a loop than a recursion function
+3.  a. i. 04
+ii. 06
+b. 
+Call number | Procedure Call | n=0 | n=1 | Result
+--- | ---| --- | --- | ---
+1 | Fibonacci(4) | False | False | Fibonacci(3)+Fibonacci(2)
+2 | Fibonacci(3) | False | False | Fibonacci(2)+Fibonacci(1)
+3 | Fibonacci(2) | False | False | Fibonacci(1)+Fibonacci(0)
+4 | Fibonacci(1) | True | False | 1
+(3) | Fibonacci(2) | | | 1
+(2) | Fibonacci(3) | | | 2
+(1) | Fibonacci(4) | | | 3
