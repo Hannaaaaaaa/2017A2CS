@@ -27,6 +27,8 @@ def process(name):
         return n
 
 def thisplayerend(name,total):
+    print('')
+    print('---------[Player:',name,']---------')
     if total>21:
         return True
     if continueend(name,total)==False:
@@ -47,7 +49,7 @@ def thisplayerturn(name):
         n=process(name)
         total=total+n
     if total>21:
-        total=-1
+        total=total-1
     return total
 
 def main():
@@ -56,13 +58,10 @@ def main():
     print('')
     score2=thisplayerturn(name2)
     if score1==score2:
-        print('tie!')
+        print('Player',name1,'and Player',name2, 'tie!')
     if score1>score2:
         print(name1,'wins')
     if score1<score2:
         print(name2,'wins')
 
 main()
-
-
-        
