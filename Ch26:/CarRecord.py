@@ -1,51 +1,55 @@
 import pickle 
-
 from datetime import date
+
 class CarRecord :
-   def __init__(self) :
-       self.VehicleID = "dummy"
-       self.Registration = ""
-       self.DateOfRegistration = date(1990,1,1)
-       self.EngineSize = 0
-       self.PurchasePrice = 0.0
+   def __init__(s) :
+       s.VehicleID = ""
+       s.Registration = ""
+       s.DateOfRegistration = None
+       s.EngineSize = 0
+       s.PurchasePrice = 0.00
        
-def SaveData(Car) :
-    CarFile = open('CarFile.DAT','wb')
+def SaveData() :
+    f = open('CarFile.DAT','wb')
     for i in range(100):
-        pickle.dump(Car[i], CarFile)
-    CarFile.close()
+        pickle.dump(Car[i], f)
+    f.close()
     
 def LoadData() :
-    CarFile = open('CarFile.DAT','rb') 
+    f = open('CarFile.DAT','rb') 
     Car = []
-    EoF = False
-    while not EoF : 
-        try :
-            Car.append(pickle.load(CarFile))
-        except :
-            EoF = True
-    CarFile.close()
+    Car.append(pickle.load(f))
+    Car.append(pickle.load(f))
+    Car.append(pickle.load(f))
+    Car.append(pickle.load(f))
+    Car.append(pickle.load(f))
+    f.close()
     return Car
 
-def OutputRecords(Car) :
-   for i in range(100):
-       print(Car[i].VehicleID)
+def OutputRecords() :
+   for i in range(5):
+       print(car[i].VehicleID)
        
-def main() :
-   ThisCar = CarRecord()
-   Car =[ThisCar for i in range(100)] 
-   SaveData(Car)  
-   Car = LoadData() 
-   OutputRecords(Car)
-   i = int(input('Record Number? '))
-   while i != 0 :
-       Car[i].VehicleID = input('Vehicle ID: ')
-       Car[i].Registration = input('Registration: ')
-       Car[i].DateOfregistration =input('Registration Date: ');
-       Car[i].EngineSize = int(input('Engine size: '))
-       Car[i].PurchasePrice = float(input('Purchase price: '))
-       i = int(input('next Record Number? '))
-   OutputRecords(Car)
-   SaveData(Car)
+
+ThisCar = CarRecord()
+Car =[ThisCar for i in range(100)]
+Car[1].vehicleID=24
+Car[1].PurchasePrice=8.00
+SaveData()
+car=LoadData()
+OutputRecords()
+
+i = int(input('Record Number? '))
+while i != -1:
+   Car[i].VehicleID = input('Vehicle ID: ')
+   Car[i].Registration = input('Registration: ')
+   Car[i].DateOfregistration =input('Registration Date: ');
+   Car[i].EngineSize = int(input('Engine size: '))
+   Car[i].PurchasePrice = float(input('Purchase price: '))
+   i = int(input('next Record Number? '))
+
+SaveData()
+car=LoadData()
+OutputRecords()
+
    
-main()
