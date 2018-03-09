@@ -37,17 +37,22 @@ class Book(LibraryItem):
     def __init__(self,t,a,i):
         LibraryItem.__init__(self,t,a,i)
         self.__IsRequested=False
+        self.__requestedby=0
 
     def GetIsRequested(self):
         return (self.__IsRequested)
 
-    def setrequested(self):
+    def setrequested(self,b):
         self.__IsRequested=True
+        self.__requestedby=b
 
     def printdetails(self):
         print('Book details: ')
         LibraryItem.PrintDetails(self)
-        print(self.__IsRequested)
+        if (self.__requestedby)==0:
+            print('No requests')
+        else:
+            print('Requested by', self.__requestedby)
 
 class CD(LibraryItem):
     def __init__(self,t,a,i):
@@ -65,11 +70,28 @@ class CD(LibraryItem):
         LibraryItem.PrintDetails(self)
         print(self.__Genre)
 
+
+
+
+
+
 firstbook=Book('12 Rules for Life','Jordan Peterson',1)
+
 firstbook.printdetails()
+
+print('')
+print('')
+print('')
+print('')
 thirdcd=CD('Nine Track Mind','Charlie Puth',5)
 thirdcd.SetGenre('Hip-Pop')
 thirdcd.printdetails()
+
+    
+
+        
+
+
 
 
 
