@@ -27,7 +27,7 @@ class lesson:
         self.__requireslab=r
 
     def outputlessondetails(self):
-        print(self.__lessontitle,' Duration:', self.__durationminutes)
+        print(self.__lessontitle,' Duration:', self.__durationminutes,' Lab:',self.__requireslab)
 
 class assessment:
     def __init__(self,t,m):
