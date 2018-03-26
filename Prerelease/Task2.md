@@ -223,7 +223,7 @@ def sorting(self):
 >n=len(ComputerGame)-1
 >for i in range(len(ComputerGame)-1):
 >>for j in range n:
->>>if ComputerGame[j].id>ComputerGame[j+1].id:
+>>>if ComputerGame[j].price>ComputerGame[j+1].price:
 >>>temp=ComputerGame[j]
 >>>ComputerGame[j]=ComputerGame[j+1]
 >>>ComputerGame[j+1]=temp
