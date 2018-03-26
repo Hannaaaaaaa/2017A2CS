@@ -131,11 +131,48 @@ Class vehicle:
 >>self.__weight=t
 
 2.5
+Class toy
 >def __init__(self,n,i,p,a):
 >>self.__name=n
 >>self.__id=i
 >>self.__price=p
 >>self.__minimumage=a #0-18
+
+>def setname(self,name):
+>>if not(str(name)):
+>>>print(‘Not string’)
+>>if len(name)<1:
+>>>print(‘invalid’)
+>>self._name=name
+
+Class computergame:
+>def __init__(self,n,i,p,a):
+>>Toy.__init__(self,n,i,p,a)
+>>self.__ca=''
+>>self.__co=''
+
+>def setca(self,ca):
+>>if not(str(ca)):
+>>>print(‘Not string’)
+>>if len(ca)<1:
+>>>print(‘invalid’)
+>>self._ca=ca
+
+
+Class vehicle:
+>def __init__(self,n,i,p,a):
+>>Toy.__init__(self,n,i,p,a)
+>>self.__type=''
+>>self.__height=0.0
+>>self.__length=0.0
+>>self.__weight=0.0
+
+>def settype(self,type):
+>>if not(str(type)):
+>>>print(‘Not string’)
+>>if len(type)<1:
+>>>print(‘invalid’)
+>>self._type=type
 
 
 2.6 
@@ -149,15 +186,28 @@ c1.computergame('PUBG', 'TEN12', '50.00', 10)
 c1.setCa('Running Dead')
 c1.setCo('MAC')
 
+toy=[]
+Toy.append(v1)
+Toy.append(c1)
+
 2.7
 def outputdetails(self):
->id=input('Enter the ID: ')
->i=0
->while not EoF: 
->>if id==toy[i].i:
->>>print('Name: ', toy.name,'  Price: ', top.price, 'Minimum Age: ', toy.minimumage)
->>else:
->>>i+=1
+>ID=find()
+>print(’Name: ', toy[ID].name,'  Price: ', toy[ID].price, 'Minimum Age: ', toy[ID].minimumage)
+
+def outputcg(self):
+>print(‘Category: ’, toy[ID].ca,’Console: ’,toy[ID].co)
+
+def outputve(self):
+>print(‘Type: ’, toy[ID].type,’Height: ’,toy[ID].height,’Length: ’, toy[ID].length,’Weight: ’,toy[ID].weight)
+
+def find(self):
+>id=input(‘Enter the ID: ’)
+>for i in toy:
+>>if i.ID()=id:
+>>>return i
+>print(‘ERROR’)
+
 
 2.8
 def discount(self):
