@@ -1,0 +1,16 @@
+LDM #2
+STO A
+
+LDM #10
+STO B
+
+LDD A
+ADD B
+STO C
+
+LDD B
+XOR #&FF
+INC ACC
+ADD A
+STO D
+
